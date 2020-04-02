@@ -3,16 +3,17 @@ import argparse
 
 parser = argparse.ArgumentParser(description='write new words')
 parser.add_argument('command')
+file_dictionary = 'dictionary.txt'
 
 
 def save_new_words_en_ru(en, ru):
-    f = open('dictionary.txt','a')
+    f = open(file_dictionary,'a')
     f.write('{en}|{ru}\n'.format(en=en, ru=ru))
     return True
 
 
 def get_all_words_from_dictionary():
-    f = open('dictionary.txt','r')
+    f = open(file_dictionary,'r')
     data = f.read()
     return data.replace('|',' - ')
 
