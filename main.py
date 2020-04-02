@@ -18,7 +18,6 @@ def get_all_words_from_dictionary():
     return data.replace('|',' - ')
 
 
-
 if __name__== '__main__':
     args = parser.parse_args()
     if 'add' == args.command:
