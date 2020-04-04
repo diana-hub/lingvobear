@@ -1,8 +1,2 @@
-rule|правило
-nothing|ничего
-all|все
-no|нет
-yes|да
-return|возвращать
-know|знать
-add|добавлять
+1|yes|да
+2|tired|усталый

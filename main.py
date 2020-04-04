@@ -6,9 +6,26 @@ parser.add_argument('command')
 file_dictionary = 'dictionary.txt'
 
 
+def get_last_id():
+    f = open(file_dictionary, 'r')
+    data = f.read()
+    if not data:
+        return 0
+    # last_string = [i for i in data.split('\n') if i][-1]
+    list_str = data.split('\n')
+    list_res = []
+    for i in list_str:
+        if i:
+            list_res.append(i)
+    last_string = list_res[-1]
+    id = last_string.split('|')[0]
+    return int(id)
+
+
 def save_new_words_en_ru(en, ru):
+    id = get_last_id() + 1
     f = open(file_dictionary,'a')
-    f.write('{en}|{ru}\n'.format(en=en, ru=ru))
+    f.write('{id}|{en}|{ru}\n'.format(id=id, en=en, ru=ru))
     return True
 
 
