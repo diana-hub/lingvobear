@@ -35,6 +35,14 @@ def get_all_words_from_dictionary():
     return data.replace('|',' - ')
 
 
+def get_last_10_words():
+    f = open(file_dictionary,'r')
+    data = f.read()
+    #res = data.split('\n')
+    res = [i for i in data.split('\n') if i][-10:]
+    return '\n'.join(res).replace('|',' - ')
+
+
 if __name__== '__main__':
     args = parser.parse_args()
     if 'add' == args.command:
@@ -44,3 +52,5 @@ if __name__== '__main__':
         print('new word is added to the dictionary')
     if 'mget' == args.command:
         print(get_all_words_from_dictionary())
+    if 'last10' == args.command:
+        print(get_last_10_words())
